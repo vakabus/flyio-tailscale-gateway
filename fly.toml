@@ -1,0 +1,36 @@
+# fly.toml file generated for vakabus-gateway on 2023-04-12T19:19:13+02:00
+
+app = "vakabus-gateway"
+kill_signal = "SIGINT"
+kill_timeout = 5
+primary_region = "waw"
+processes = []
+
+[env]
+
+[deploy]
+  strategy = "immediate"
+
+[experimental]
+  auto_rollback = true
+
+
+[[services]]
+  internal_port = 80
+  protocol = "tcp"
+  [[services.ports]]
+    port = 80
+
+[[services]]
+  internal_port = 443
+  protocol = "tcp"
+  [[services.ports]]
+    port = 443
+
+[[services]]
+  internal_port = 443
+  protocol = "udp"
+  [[services.ports]]
+    port = 443
+
+
