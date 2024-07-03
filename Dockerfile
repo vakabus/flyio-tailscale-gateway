@@ -1,4 +1,4 @@
-FROM docker.io/debian:latest
+FROM docker.io/debian:bookworm
 
 RUN apt-get update && \
 	apt-get upgrade && \
@@ -13,8 +13,8 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 # tailscale keyring and repo
-RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.noarmor.gpg | tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null && \
-	curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.tailscale-keyring.list | tee /etc/apt/sources.list.d/tailscale.list
+RUN curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null && \
+	curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list | tee /etc/apt/sources.list.d/tailscale.list
 	
 
 # install
